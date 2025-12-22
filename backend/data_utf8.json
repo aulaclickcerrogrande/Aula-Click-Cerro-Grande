@@ -1,0 +1,370 @@
+[
+{
+  "model": "core.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$O5uzifDF9KLrcAmMDrEVB6$xO/PFEHWpRYQ9SIgrwp5eQg0e+Dvu9hsV8jE97OfqNw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Luciano Perez",
+    "first_name": "Luciano",
+    "last_name": "Perez",
+    "email": "lpgunfv@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-12-19T03:42:04.931Z",
+    "middle_name": "",
+    "second_last_name": "",
+    "role": "teacher",
+    "phone": "+51999574257",
+    "avatar": null,
+    "yape_qr": "https://res.cloudinary.com/db2luliqx/image/upload/v1766343749/aula_click/images/wsd77ylhaco37lt1qirn.png",
+    "plin_qr": "https://res.cloudinary.com/db2luliqx/image/upload/v1766343752/aula_click/images/gpuyztdlzug6jt4gkhhk.png",
+    "created_at": "2025-12-19T03:42:05.480Z",
+    "updated_at": "2025-12-21T19:02:33.215Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Ncw5z5a7K86IqQB71NISJT$Rvoi0TLuYW2fY9wJos0dTg6xAu1DiqH5SExraepPiZk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Juan Carlos Alberto Perez Garcia Lopez",
+    "first_name": "Juan",
+    "last_name": "Perez",
+    "email": "chesucito@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-20T18:25:32.074Z",
+    "middle_name": "Carlos Alberto",
+    "second_last_name": "Garcia Lopez",
+    "role": "student",
+    "phone": "",
+    "avatar": null,
+    "yape_qr": null,
+    "plin_qr": null,
+    "created_at": "2025-12-20T18:25:32.075Z",
+    "updated_at": "2025-12-20T18:25:32.075Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core.course",
+  "pk": 3,
+  "fields": {
+    "title": "Fundamentos de desarrollo web",
+    "description": "aquí aprenderás a desarrollar tanto frontend como backend.",
+    "thumbnail": "https://res.cloudinary.com/db2luliqx/image/upload/v1766289450/aula_click/images/tyqgi4ac2lgtc1m2dqsz.png",
+    "teacher": 1,
+    "is_paid": true,
+    "price": "39.00",
+    "is_published": true,
+    "created_at": "2025-12-21T03:21:35.399Z",
+    "updated_at": "2025-12-21T17:02:13.123Z"
+  }
+},
+{
+  "model": "core.lesson",
+  "pk": 3,
+  "fields": {
+    "course": 3,
+    "title": "clase 01",
+    "description": "",
+    "order": 0,
+    "youtube_video_id": "https://youtu.be/VPQICmxcXqE?si=qlj29Gqyy2T8XDKA",
+    "video_duration": 0,
+    "pdf_files": [],
+    "docx_files": [],
+    "xlsx_files": [],
+    "pptx_files": [],
+    "audio_file": null,
+    "created_at": "2025-12-21T03:21:46.869Z",
+    "updated_at": "2025-12-21T16:47:26.827Z"
+  }
+},
+{
+  "model": "core.lesson",
+  "pk": 4,
+  "fields": {
+    "course": 3,
+    "title": "clase 02",
+    "description": "",
+    "order": 1,
+    "youtube_video_id": "",
+    "video_duration": 0,
+    "pdf_files": [],
+    "docx_files": [],
+    "xlsx_files": [],
+    "pptx_files": [],
+    "audio_file": null,
+    "created_at": "2025-12-21T03:21:54.099Z",
+    "updated_at": "2025-12-21T04:01:39.573Z"
+  }
+},
+{
+  "model": "core.voucherpayment",
+  "pk": 1,
+  "fields": {
+    "student": 4,
+    "course": 3,
+    "voucher_image": "https://res.cloudinary.com/db2luliqx/image/upload/v1766344857/aula_click/images/lndx4oxknlucd7iuozfp.avif",
+    "status": "rejected",
+    "is_seen": true,
+    "submitted_at": "2025-12-21T19:20:58.941Z",
+    "reviewed_at": "2025-12-21T19:21:52.018Z",
+    "reviewed_by": 1,
+    "notes": "Voucher inválido"
+  }
+},
+{
+  "model": "core.voucherpayment",
+  "pk": 2,
+  "fields": {
+    "student": 4,
+    "course": 3,
+    "voucher_image": "https://res.cloudinary.com/db2luliqx/image/upload/v1766344977/aula_click/images/rzut84tvd1rffazyk2pf.jpg",
+    "status": "approved",
+    "is_seen": true,
+    "submitted_at": "2025-12-21T19:22:59.069Z",
+    "reviewed_at": "2025-12-21T19:29:22.275Z",
+    "reviewed_by": 1,
+    "notes": ""
+  }
+},
+{
+  "model": "core.voucherpayment",
+  "pk": 3,
+  "fields": {
+    "student": 4,
+    "course": 3,
+    "voucher_image": "https://res.cloudinary.com/db2luliqx/image/upload/v1766345000/aula_click/images/pknntjtjmnqtzhwv29hx.jpg",
+    "status": "rejected",
+    "is_seen": true,
+    "submitted_at": "2025-12-21T19:23:22.804Z",
+    "reviewed_at": "2025-12-21T19:28:47.189Z",
+    "reviewed_by": 1,
+    "notes": "Voucher inválido"
+  }
+},
+{
+  "model": "core.voucherpayment",
+  "pk": 4,
+  "fields": {
+    "student": 4,
+    "course": 3,
+    "voucher_image": "https://res.cloudinary.com/db2luliqx/image/upload/v1766346044/aula_click/images/jn1tdziv74x6eiktrruv.avif",
+    "status": "rejected",
+    "is_seen": true,
+    "submitted_at": "2025-12-21T19:40:45.402Z",
+    "reviewed_at": "2025-12-21T19:41:15.813Z",
+    "reviewed_by": 1,
+    "notes": ""
+  }
+},
+{
+  "model": "core.voucherpayment",
+  "pk": 5,
+  "fields": {
+    "student": 4,
+    "course": 3,
+    "voucher_image": "https://res.cloudinary.com/db2luliqx/image/upload/v1766346564/aula_click/images/qmczyy8hl6koko7jlauh.avif",
+    "status": "approved",
+    "is_seen": true,
+    "submitted_at": "2025-12-21T19:49:24.854Z",
+    "reviewed_at": "2025-12-21T20:08:48.020Z",
+    "reviewed_by": 1,
+    "notes": ""
+  }
+},
+{
+  "model": "core.voucherpayment",
+  "pk": 6,
+  "fields": {
+    "student": 4,
+    "course": 3,
+    "voucher_image": "https://res.cloudinary.com/db2luliqx/image/upload/v1766348663/aula_click/images/yygarutcsh38vlo0bfot.avif",
+    "status": "rejected",
+    "is_seen": true,
+    "submitted_at": "2025-12-21T20:24:24.601Z",
+    "reviewed_at": "2025-12-21T20:25:10.768Z",
+    "reviewed_by": 1,
+    "notes": "Se ve borroso"
+  }
+},
+{
+  "model": "core.voucherpayment",
+  "pk": 7,
+  "fields": {
+    "student": 4,
+    "course": 3,
+    "voucher_image": "https://res.cloudinary.com/db2luliqx/image/upload/v1766348733/aula_click/images/qmszxpxcn0yd8pgwuzet.jpg",
+    "status": "approved",
+    "is_seen": true,
+    "submitted_at": "2025-12-21T20:25:34.471Z",
+    "reviewed_at": "2025-12-21T20:25:56.433Z",
+    "reviewed_by": 1,
+    "notes": ""
+  }
+},
+{
+  "model": "core.emailverification",
+  "pk": 1,
+  "fields": {
+    "email": "test@example.com",
+    "code": "737534",
+    "created_at": "2025-12-19T20:30:46.264Z",
+    "last_sent_at": "2025-12-19T20:30:46.264Z",
+    "is_verified": false,
+    "first_name": "Test",
+    "middle_name": "User",
+    "last_name": "Last",
+    "second_last_name": "Name",
+    "password": "pbkdf2_sha256$600000$vsdpQE1BAxLBJAElHGPXzN$jgq3pMIF4+qKXveQsp4hXnAYod8F1ooy2j+rBJkI2OA=",
+    "phone": "123456789"
+  }
+},
+{
+  "model": "core.emailverification",
+  "pk": 2,
+  "fields": {
+    "email": "jesusantonioaravenafarias@gmail.com",
+    "code": "792937",
+    "created_at": "2025-12-19T20:33:24.902Z",
+    "last_sent_at": "2025-12-19T20:33:24.902Z",
+    "is_verified": false,
+    "first_name": "Jesus",
+    "middle_name": "Antonio",
+    "last_name": "Araveña",
+    "second_last_name": "Farias",
+    "password": "pbkdf2_sha256$600000$j4t3pgwt2lPcDnhWBkcVkf$bl36mmgFqn2iyAdNNPMFmQhYZ0IHzhTTYli1Lha9OHI=",
+    "phone": ""
+  }
+},
+{
+  "model": "core.emailverification",
+  "pk": 3,
+  "fields": {
+    "email": "test_simplificado_1766179927208@example.com",
+    "code": "926582",
+    "created_at": "2025-12-19T21:32:08.709Z",
+    "last_sent_at": "2025-12-19T21:32:08.710Z",
+    "is_verified": false,
+    "first_name": "Juan Carlos",
+    "middle_name": "Alberto",
+    "last_name": "Pérez",
+    "second_last_name": "García López",
+    "password": "pbkdf2_sha256$600000$xxjB30oOUugMcjdrGZ0mLi$S0t6jcfO+XSnnNvPLN2QVS+NurLN0MB/Qdqv88NckTQ=",
+    "phone": "+51 999 123 456"
+  }
+},
+{
+  "model": "core.emailverification",
+  "pk": 4,
+  "fields": {
+    "email": "test_simplificado_1766180034522@example.com",
+    "code": "851959",
+    "created_at": "2025-12-19T21:33:55.944Z",
+    "last_sent_at": "2025-12-19T21:33:55.944Z",
+    "is_verified": false,
+    "first_name": "Juan",
+    "middle_name": "Carlos Alberto",
+    "last_name": "Pérez",
+    "second_last_name": "García López",
+    "password": "pbkdf2_sha256$600000$N0cLViparcy9ymZmYXQIHC$6dSzBpjE5JsHHT4CToFQETJ5PxIn3Tz1Yta5Dr14Qcs=",
+    "phone": "+51 999 123 456"
+  }
+},
+{
+  "model": "core.emailverification",
+  "pk": 5,
+  "fields": {
+    "email": "test_ui_manual_final@example.com",
+    "code": "040486",
+    "created_at": "2025-12-19T21:37:41.340Z",
+    "last_sent_at": "2025-12-19T21:37:41.340Z",
+    "is_verified": false,
+    "first_name": "Juan",
+    "middle_name": "Carlos Alberto",
+    "last_name": "Perez",
+    "second_last_name": "Garcia Lopez",
+    "password": "pbkdf2_sha256$600000$URQJCEnGmM2rcLLPVRMVNc$V0YBSJvRnBsnlSlkIN4M6ojdg7pt/FgDUrtTM21b+SU=",
+    "phone": "+51 999 123 456"
+  }
+},
+{
+  "model": "core.emailverification",
+  "pk": 7,
+  "fields": {
+    "email": "testuser@gmail.com",
+    "code": "740361",
+    "created_at": "2025-12-19T22:14:43.436Z",
+    "last_sent_at": "2025-12-19T22:14:43.436Z",
+    "is_verified": false,
+    "first_name": "Test",
+    "middle_name": "User",
+    "last_name": "Lopez",
+    "second_last_name": "Gimenez",
+    "password": "pbkdf2_sha256$600000$Szh7mAfUji1vqm6hCUjVsp$2gyqh8aB6YfDV87fTSqqrtpc86uSBcLHDPDnDLivbkk=",
+    "phone": ""
+  }
+},
+{
+  "model": "core.emailverification",
+  "pk": 8,
+  "fields": {
+    "email": "chesucito@gmail.com",
+    "code": "139695",
+    "created_at": "2025-12-20T04:50:30.546Z",
+    "last_sent_at": "2025-12-20T04:50:30.547Z",
+    "is_verified": true,
+    "first_name": "Juan",
+    "middle_name": "Carlos Alberto",
+    "last_name": "Perez",
+    "second_last_name": "Garcia Lopez",
+    "password": "pbkdf2_sha256$600000$Ncw5z5a7K86IqQB71NISJT$Rvoi0TLuYW2fY9wJos0dTg6xAu1DiqH5SExraepPiZk=",
+    "phone": ""
+  }
+},
+{
+  "model": "core.emailverification",
+  "pk": 9,
+  "fields": {
+    "email": "jesus@gmail.com",
+    "code": "639104",
+    "created_at": "2025-12-20T17:16:27.298Z",
+    "last_sent_at": "2025-12-20T17:16:27.298Z",
+    "is_verified": false,
+    "first_name": "Richard",
+    "middle_name": "Augusto",
+    "last_name": "Lopez",
+    "second_last_name": "Gimenez",
+    "password": "pbkdf2_sha256$600000$pgOP7jAYrUVDEkb9RMT9xP$xeXVFMRF1p+vWLh1jhACmIvTCmaw/L1El89pVjq2J0s=",
+    "phone": ""
+  }
+},
+{
+  "model": "core.passwordreset",
+  "pk": 1,
+  "fields": {
+    "email": "chesucito@gmail.com",
+    "code": "786325",
+    "created_at": "2025-12-20T17:42:37.843Z",
+    "is_used": true
+  }
+},
+{
+  "model": "core.passwordreset",
+  "pk": 2,
+  "fields": {
+    "email": "chesucito@gmail.com",
+    "code": "713874",
+    "created_at": "2025-12-20T17:44:09.736Z",
+    "is_used": true
+  }
+}
+]
