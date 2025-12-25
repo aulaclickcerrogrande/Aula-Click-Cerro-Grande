@@ -6,37 +6,30 @@ django.setup()
 
 from core.models import User
 
-# Datos del docente
-email = 'lpgunfv@gmail.com'
-first_name = 'Luciano'
-last_name = 'Perez'
-username = 'Luciano Perez'
-password = 'AulaClick2025!Docente'
-phone = '+51999574257'
-
-# Verificar si ya existe
-if User.objects.filter(email=email).exists():
-    print(f"❌ Ya existe un usuario con el email {email}")
-    user = User.objects.get(email=email)
-    print(f"   Usuario existente: {user.username} - {user.role}")
-else:
-    # Crear usuario docente
-    user = User.objects.create_user(
-        username=username,
-        email=email,
-        password=password,
-        first_name=first_name,
-        last_name=last_name,
-        middle_name='',
-        second_last_name='',
-        role='teacher',
-        phone=phone,
-        is_staff=True,  # Acceso al admin de Django
-    )
+def create_teacher():
+    email = 'lpgunfv@gmail.com'
+    found_user = User.objects.filter(email=email).first()
     
-    print("✅ Usuario docente creado exitosamente!")
-    print(f"   Email: {email}")
-    print(f"   Username: {username}")
-    print(f"   Contraseña: {password}")
-    print(f"   Rol: {user.role}")
-    print(f"\n🔐 GUARDA ESTA CONTRASEÑA DE FORMA SEGURA")
+    if not found_user:
+        user = User.objects.create_user(
+            username='Luciano Perez',
+            email=email,
+            password='Profe.Luciano$Aula25!',
+            first_name='Luciano',
+            last_name='Perez',
+            role='teacher'
+        )
+        user.is_staff = True
+        user.is_superuser = True
+        user.save()
+        print(f"✅ Usuario {email} creado exitosamente como profesor y admin.")
+    else:
+        # Asegurarse de que tenga los permisos correctos si ya existe
+        found_user.role = 'teacher'
+        found_user.is_staff = True
+        found_user.is_superuser = True
+        found_user.save()
+        print(f"ℹ️ El usuario {email} ya existía, permisos actualizados.")
+
+if __name__ == '__main__':
+    create_teacher()
