@@ -11,12 +11,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Actualizar currentUser cuando cambia user del contexto
-  useEffect(() => {
-    setCurrentUser(user);
-    setRefreshKey(prev => prev + 1);
-  }, [user]);
-
   const handleLogout = () => {
     logout();
     setIsMenuOpen(false);
@@ -50,12 +44,12 @@ const Navbar = () => {
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center space-x-6">
-              {currentUser ? (
+              {user ? (
                 <div className="flex items-center space-x-4">
                   <div className="text-right">
-                    <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">{currentUser.username}</p>
+                    <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">{user.username}</p>
                     <p className="text-xs text-gray-600 dark:text-gray-400">
-                      {currentUser.role === 'teacher' ? 'Docente' : 'Estudiante'}
+                      {user.role === 'teacher' ? 'Docente' : 'Estudiante'}
                     </p>
                   </div>
                   <button
@@ -93,16 +87,16 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 animate-in slide-in-from-top duration-200">
           <div className="container mx-auto px-4 py-6 space-y-4">
-            {currentUser ? (
+            {user ? (
               <div className="space-y-4">
                 <div className="pb-4 border-b border-gray-100 dark:border-gray-800">
-                  <p className="font-bold text-gray-900 dark:text-white">{currentUser.username}</p>
+                  <p className="font-bold text-gray-900 dark:text-white">{user.username}</p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    {currentUser.role === 'teacher' ? 'Docente' : 'Estudiante'}
+                    {user.role === 'teacher' ? 'Docente' : 'Estudiante'}
                   </p>
                 </div>
                 <Link
-                  to={currentUser.role === 'teacher' ? '/teacher' : '/student'}
+                  to={user.role === 'teacher' ? '/teacher' : '/student'}
                   onClick={() => setIsMenuOpen(false)}
                   className="flex items-center space-x-3 p-3 rounded-xl bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-400"
                 >
