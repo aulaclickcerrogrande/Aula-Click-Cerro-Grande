@@ -54,7 +54,7 @@ const Login = () => {
           <p className="text-gray-600 dark:text-gray-300 mt-2">Accede a tu cuenta de Aula Click</p>
         </div>
 
-        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-8 transition-colors duration-300">
+        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-6 md:p-8 transition-colors duration-300">
           {error && (
             <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-start space-x-3">
               <AlertCircle className="text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" size={20} />

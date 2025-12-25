@@ -38,7 +38,7 @@ const StudentDashboard = () => {
     <div className="flex min-h-screen bg-white dark:bg-gray-900">
       <DashboardSidebar />
 
-      <main className="ml-64 flex-1 p-8">
+      <main className="lg:ml-64 flex-1 p-4 md:p-8">
         <VoucherNotifications />
         {loading ? (
           <div className="flex items-center justify-center min-h-[60vh]">

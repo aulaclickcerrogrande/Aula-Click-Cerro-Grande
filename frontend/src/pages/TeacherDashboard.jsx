@@ -86,7 +86,7 @@ const TeacherDashboard = () => {
     <div className="flex min-h-screen bg-white dark:bg-gray-900">
       <DashboardSidebar />
 
-      <main className="ml-64 flex-1 p-8">
+      <main className="lg:ml-64 flex-1 p-4 md:p-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-2xl font-normal text-gray-800 dark:text-gray-100">Mis Cursos</h1>
