@@ -134,10 +134,14 @@ SIMPLE_JWT = {
     'USER_ID_CLAIM': 'user_id',
 }
 
-CORS_ALLOWED_ORIGINS = os.getenv(
-    'CORS_ALLOWED_ORIGINS',
-    'http://localhost:3000,http://localhost:5173'
-).split(',')
+CORS_ALLOWED_ORIGINS_ENV = os.getenv('CORS_ALLOWED_ORIGINS', '')
+
+if CORS_ALLOWED_ORIGINS_ENV == '*':
+    CORS_ALLOW_ALL_ORIGINS = True
+elif CORS_ALLOWED_ORIGINS_ENV:
+    CORS_ALLOWED_ORIGINS = CORS_ALLOWED_ORIGINS_ENV.split(',')
+else:
+    CORS_ALLOW_ALL_ORIGINS = True  # Por defecto en desarrollo permitimos todo si no hay env
 
 CORS_ALLOW_CREDENTIALS = True
 
