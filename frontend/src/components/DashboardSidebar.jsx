@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Settings, BookOpen, Users, CheckCircle, XCircle, AlertCircle, Eye } from 'lucide-react';
+import { Home, Settings, BookOpen, Users, CheckCircle, XCircle, AlertCircle, Eye, LayoutDashboard } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { voucherAPI } from '../services/api';
 import VoucherActionModal from './VoucherActionModal';
