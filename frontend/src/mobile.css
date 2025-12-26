@@ -1,0 +1,343 @@
+/* ========================================
+   🔥 DISEÑO EXCLUSIVO PARA MÓVILES 📱
+   Este archivo SOLO afecta pantallas menores a 768px
+   El diseño de PC queda INTOCABLE
+   ======================================== */
+
+@media (max-width: 768px) {
+
+    /* ===== NAVBAR ===== */
+    nav .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    nav .flex.items-center.justify-between {
+        flex-wrap: wrap;
+    }
+
+    nav .flex.items-center.space-x-3 img {
+        height: 2.5rem !important;
+    }
+
+    nav .flex.items-center.space-x-4 {
+        gap: 0.5rem !important;
+    }
+
+    nav .flex.items-center.space-x-6 {
+        gap: 0.5rem !important;
+    }
+
+    nav a span,
+    nav button span {
+        display: none;
+    }
+
+    nav a.px-6,
+    nav button.px-6 {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+        font-size: 0.875rem !important;
+    }
+
+    /* ===== HOME - HERO SECTION ===== */
+    .min-h-screen.bg-gradient-to-br {
+        padding: 2rem 1rem !important;
+    }
+
+    .min-h-screen .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Título principal */
+    h1.text-6xl,
+    h1.text-5xl {
+        font-size: 2rem !important;
+        line-height: 2.5rem !important;
+    }
+
+    /* Párrafos de descripción */
+    p.text-xl,
+    p.text-2xl {
+        font-size: 1rem !important;
+        line-height: 1.5rem !important;
+    }
+
+    /* Botones del hero */
+    .space-x-4.flex {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        width: 100%;
+    }
+
+    .space-x-4 a,
+    .space-x-4 button {
+        width: 100% !important;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* ===== CARDS DE CARACTERÍSTICAS ===== */
+    .grid.grid-cols-3 {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .grid .card {
+        padding: 1.5rem !important;
+    }
+
+    /* ===== LISTA DE CURSOS ===== */
+    .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3 {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    /* Cards de curso */
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .card img {
+        height: 12rem !important;
+    }
+
+    /* ===== FOOTER ===== */
+    footer .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        text-align: center;
+    }
+
+    footer .space-y-4 {
+        align-items: center;
+    }
+
+    footer a {
+        justify-content: center;
+    }
+
+    /* ===== FORMULARIOS (Login, Register) ===== */
+    .max-w-md,
+    .max-w-lg,
+    .max-w-xl,
+    .max-w-2xl {
+        max-width: 100% !important;
+        padding: 1rem !important;
+    }
+
+    .card.p-8,
+    .card.p-10 {
+        padding: 1.5rem !important;
+    }
+
+    /* Inputs */
+    .input-field {
+        font-size: 1rem !important;
+    }
+
+    /* Botones de formulario */
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        padding: 0.875rem !important;
+    }
+
+    /* ===== DASHBOARD ===== */
+    .grid.grid-cols-2,
+    .grid.grid-cols-3,
+    .grid.grid-cols-4 {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Sidebar del Dashboard */
+    aside {
+        position: fixed !important;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 40;
+    }
+
+    aside.open {
+        transform: translateX(0);
+    }
+
+    /* ===== TABLAS ===== */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody,
+    tr,
+    td {
+        display: block;
+        width: 100%;
+    }
+
+    tr {
+        margin-bottom: 1rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 1rem;
+    }
+
+    td {
+        text-align: right;
+        padding: 0.5rem 0;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 0.5rem;
+        font-weight: 600;
+        text-align: left;
+    }
+
+    /* ===== MODALES ===== */
+    .fixed.inset-0>div {
+        width: 95vw !important;
+        max-width: none !important;
+        margin: 1rem !important;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    /* ===== WHATSAPP BUTTON ===== */
+    .whatsapp-float {
+        width: 50px !important;
+        height: 50px !important;
+        bottom: 20px !important;
+        right: 20px !important;
+        font-size: 24px !important;
+    }
+
+    /* ===== COURSE DETAIL ===== */
+    .grid.lg\\:grid-cols-3 {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Video player */
+    iframe,
+    video {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16/9;
+    }
+
+    /* ===== SETTINGS PAGE ===== */
+    .space-y-6 {
+        gap: 1rem !important;
+    }
+
+    /* ===== BADGES Y CHIPS ===== */
+    .badge,
+    .chip {
+        font-size: 0.75rem !important;
+        padding: 0.25rem 0.5rem !important;
+    }
+
+    /* ===== SPACING GENERAL ===== */
+    .space-x-8 {
+        gap: 1rem !important;
+    }
+
+    .space-y-8 {
+        gap: 1rem !important;
+    }
+
+    .px-8 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .py-8 {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+
+    /* ===== TEXTOS RESPONSIVOS ===== */
+    h2.text-4xl,
+    h2.text-5xl {
+        font-size: 1.75rem !important;
+        line-height: 2rem !important;
+    }
+
+    h3.text-3xl {
+        font-size: 1.5rem !important;
+        line-height: 2rem !important;
+    }
+
+    h3.text-2xl {
+        font-size: 1.25rem !important;
+        line-height: 1.75rem !important;
+    }
+
+    /* ===== CONTAINERS ===== */
+    .container {
+        max-width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* ===== LESSON VIEW ===== */
+    .lesson-content {
+        padding: 1rem !important;
+    }
+
+    .lesson-sidebar {
+        position: static !important;
+        width: 100% !important;
+    }
+
+    /* ===== STATS CARDS ===== */
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* ===== FLEX WRAP GENERAL ===== */
+    .flex.items-center {
+        flex-wrap: wrap;
+    }
+
+    .flex.justify-between {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+/* ===== EXTRA SMALL DEVICES (< 480px) ===== */
+@media (max-width: 480px) {
+
+    h1.text-6xl,
+    h1.text-5xl {
+        font-size: 1.75rem !important;
+        line-height: 2rem !important;
+    }
+
+    .card {
+        border-radius: 0.75rem !important;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        font-size: 0.875rem !important;
+    }
+
+    nav {
+        height: auto !important;
+        min-height: 4rem;
+    }
+}

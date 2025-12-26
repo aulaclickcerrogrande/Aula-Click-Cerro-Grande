@@ -50,8 +50,8 @@ const Home = () => {
           <div className="absolute bottom-20 left-20 w-96 h-96 bg-blue-200 dark:bg-blue-900 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="container mx-auto px-4 relative z-10 py-12 lg:py-0">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center lg:-mt-20">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center lg:-mt-20">
             {/* Lado izquierdo: Logo + Textos */}
             <div className="text-center lg:text-left space-y-6 lg:pl-12">
               <div className="inline-block lg:block">
@@ -62,10 +62,10 @@ const Home = () => {
                 />
               </div>
               <div className="space-y-3">
-                <p className="text-lg md:text-2xl font-light text-gray-600 dark:text-gray-400 tracking-wide">
+                <p className="text-xl md:text-2xl font-light text-gray-600 dark:text-gray-400 tracking-wide">
                   Bienvenido a
                 </p>
-                <h1 className="text-4xl md:text-7xl font-bold leading-tight">
+                <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                   <span className="bg-gradient-to-r from-primary-600 to-blue-600 dark:from-primary-400 dark:to-blue-400 bg-clip-text text-transparent">
                     Aula Click
                   </span>
@@ -73,7 +73,7 @@ const Home = () => {
                   <span className="text-gray-900 dark:text-white">Cerro Grande</span>
                 </h1>
               </div>
-              <p className="text-base md:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0">
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-xl">
                 Aprende a tu ritmo con los mejores cursos online. Educación de calidad al alcance de todos.
               </p>
             </div>
@@ -82,7 +82,7 @@ const Home = () => {
             <div className="flex flex-col gap-4 max-w-md mx-auto lg:mx-0 w-full lg:pl-16">
               {!user && (
                 <>
-                  <h3 className="text-xl md:text-3xl font-bold text-gray-900 dark:text-white text-center lg:text-left mb-2">
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white text-center lg:text-left mb-2">
                     ¡Comienza tu camino educativo!
                   </h3>
                   <Link to="/register" className="group px-6 py-4 bg-blue-50 dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-gray-700 text-primary-600 dark:text-primary-400 font-semibold rounded-xl transition-all duration-200 flex items-center justify-between border border-blue-100 dark:border-gray-700">
