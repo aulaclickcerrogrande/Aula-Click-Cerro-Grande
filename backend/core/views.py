@@ -702,3 +702,19 @@ def reset_password(request):
             status=status.HTTP_404_NOT_FOUND
         )
 
+
+@api_view(['POST', 'GET'])
+@permission_classes([AllowAny])
+def visitor_count_view(request):
+    """
+    Obtiene e incrementa el contador de visitas.
+    """
+    from .models import SiteSettings
+    settings, created = SiteSettings.objects.get_or_create(id=1)
+    
+    if request.method == 'POST':
+        settings.visitor_count += 1
+        settings.save()
+        
+    return Response({'visitor_count': settings.visitor_count})
+

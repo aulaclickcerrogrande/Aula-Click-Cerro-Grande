@@ -10,13 +10,12 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-4">
               <img
                 src="/logo.png"
-                alt="Aula Click"
+                alt="Aula Click Cerro Grande"
                 className="h-12 w-auto rounded-xl shadow-md"
                 onError={(e) => e.target.style.display = 'none'}
               />
               <div className="text-left">
-                <h3 className="text-xl font-bold text-white leading-none">Aula Click</h3>
-                <p className="text-sm text-gray-400 dark:text-gray-500">Cerro Grande</p>
+                <h3 className="text-xl font-bold text-white leading-none">Aula Click <br /> Cerro Grande</h3>
               </div>
             </div>
             <p className="text-gray-400 dark:text-gray-500 text-sm max-w-xs mx-auto">

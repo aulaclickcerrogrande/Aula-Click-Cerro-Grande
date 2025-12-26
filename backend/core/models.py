@@ -205,3 +205,11 @@ class PasswordReset(models.Model):
         """Verifica si el código ha expirado (10 minutos)"""
         time_diff = timezone.now() - self.created_at
         return time_diff.total_seconds() > 600  # 10 minutos
+
+
+class SiteSettings(models.Model):
+    visitor_count = models.PositiveIntegerField(default=0)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"Configuración del Sitio (Visitas: {self.visitor_count})"

@@ -125,5 +125,14 @@ export const userAPI = {
   delete: (id) => api.delete(`/users/${id}/`),
 };
 
+export const statsAPI = {
+  getVisitorCount: (increment = false) => {
+    if (increment) {
+      return api.post('/stats/visitor-count/');
+    }
+    return api.get('/stats/visitor-count/');
+  },
+};
+
 export default api;
 

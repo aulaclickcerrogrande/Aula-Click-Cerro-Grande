@@ -19,6 +19,7 @@ import LessonForm from './pages/LessonForm';
 import Settings from './pages/Settings';
 import ManageStudents from './pages/ManageStudents';
 import ForgotPassword from './pages/ForgotPassword';
+import WhoWeAre from './pages/WhoWeAre';
 
 function AppContent() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function AppContent() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/nosotros" element={<WhoWeAre />} />
 
           <Route
             path="/courses"

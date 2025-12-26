@@ -113,28 +113,28 @@ const CourseForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-4 md:py-8 transition-colors duration-300">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="mb-8">
+        <div className="mb-6 md:mb-8">
           <button
             onClick={() => navigate('/teacher/dashboard')}
-            className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 mb-4 transition-colors"
+            className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 mb-3 md:mb-4 transition-colors text-sm md:text-base font-semibold"
           >
-            <ArrowLeft size={20} />
-            <span>Volver a la pantalla principal</span>
+            <ArrowLeft size={18} />
+            <span className="truncate">Volver al Panel</span>
           </button>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-1 md:mb-2 leading-tight">
             {isEdit ? 'Editar Curso' : 'Crear Nuevo Curso'}
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">
             {isEdit ? 'Actualiza la información de tu curso' : 'Completa los datos para crear un nuevo curso'}
           </p>
         </div>
 
-        <form onSubmit={handleSubmitClick} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border border-gray-200 dark:border-gray-700">
-          <div className="space-y-6">
+        <form onSubmit={handleSubmitClick} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-5 md:p-8 mb-6 md:mb-8 border border-gray-200 dark:border-gray-700">
+          <div className="space-y-5 md:space-y-6">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wider">
                 Título del Curso *
               </label>
               <input
@@ -142,14 +142,14 @@ const CourseForm = () => {
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
-                className="input-field"
+                className="input-field py-3 text-sm md:text-base"
                 placeholder="Ej: Introducción a la Programación"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wider">
                 Descripción *
               </label>
               <textarea
@@ -157,28 +157,28 @@ const CourseForm = () => {
                 value={formData.description}
                 onChange={handleChange}
                 rows="5"
-                className="input-field"
+                className="input-field py-3 text-sm md:text-base"
                 placeholder="Describe tu curso..."
                 required
               ></textarea>
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wider">
                 Imagen de Portada
               </label>
-              <div className="flex items-center space-x-4">
+              <div className="flex flex-col sm:flex-row items-center gap-4">
                 {formData.thumbnail && (
                   <img
                     src={formData.thumbnail}
                     alt="Thumbnail"
-                    className="w-32 h-32 object-cover rounded-lg"
+                    className="w-full sm:w-32 h-32 object-cover rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm"
                   />
                 )}
-                <label className="flex-1 cursor-pointer">
-                  <div className="flex items-center justify-center space-x-2 px-4 py-3 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg hover:border-primary-500 dark:hover:border-primary-400 transition-colors">
-                    <Upload size={20} className="text-gray-600 dark:text-gray-400" />
-                    <span className="text-gray-600 dark:text-gray-400">
+                <label className="w-full flex-1 cursor-pointer">
+                  <div className="flex items-center justify-center space-x-2 px-4 py-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl hover:border-primary-500 dark:hover:border-primary-400 transition-all hover:bg-gray-50 dark:hover:bg-gray-900/30">
+                    <Upload size={20} className="text-gray-400" />
+                    <span className="text-sm font-semibold text-gray-600 dark:text-gray-400">
                       {uploading ? 'Subiendo...' : 'Subir Imagen'}
                     </span>
                   </div>
@@ -193,9 +193,9 @@ const CourseForm = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
               <div>
-                <label className="flex items-center space-x-3 cursor-pointer">
+                <label className="flex items-center space-x-3 cursor-pointer p-4 bg-gray-50 dark:bg-gray-900/50 rounded-xl border border-gray-100 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">
                   <input
                     type="checkbox"
                     name="is_paid"
@@ -203,7 +203,7 @@ const CourseForm = () => {
                     onChange={handleChange}
                     className="w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
                   />
-                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  <span className="text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     Curso de Pago
                   </span>
                 </label>
@@ -211,7 +211,7 @@ const CourseForm = () => {
 
               {formData.is_paid && (
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wider px-1">
                     Precio (S/)
                   </label>
                   <input
@@ -221,7 +221,7 @@ const CourseForm = () => {
                     onChange={handleChange}
                     step="0.01"
                     min="0"
-                    className="input-field"
+                    className="input-field py-3"
                     placeholder="0.00"
                   />
                 </div>
@@ -229,7 +229,7 @@ const CourseForm = () => {
             </div>
 
             <div>
-              <label className="flex items-center space-x-3 cursor-pointer">
+              <label className="flex items-center space-x-3 cursor-pointer p-4 bg-gray-50 dark:bg-gray-900/50 rounded-xl border border-gray-100 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">
                 <input
                   type="checkbox"
                   name="is_published"
@@ -237,8 +237,8 @@ const CourseForm = () => {
                   onChange={handleChange}
                   className="w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
                 />
-                <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                  Publicar Curso (visible para estudiantes)
+                <span className="text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  Publicar (Visible para alumnos)
                 </span>
               </label>
             </div>
@@ -246,21 +246,21 @@ const CourseForm = () => {
             <button
               type="submit"
               disabled={loading || uploading}
-              className="w-full btn-primary disabled:opacity-50 flex items-center justify-center space-x-2"
+              className="w-full btn-primary disabled:opacity-50 flex items-center justify-center space-x-2 py-4 shadow-xl shadow-primary-600/20 active:scale-[0.98] transition-all"
             >
               <Save size={20} />
-              <span>{loading ? 'Guardando...' : isEdit ? 'Actualizar Curso' : 'Crear Curso'}</span>
+              <span className="font-bold uppercase tracking-wider">{loading ? 'Guardando...' : isEdit ? 'Actualizar Curso' : 'Crear Curso'}</span>
             </button>
           </div>
         </form>
 
         {isEdit && (
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Lecciones del Curso</h2>
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-5 md:p-8 border border-gray-200 dark:border-gray-700 mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100">Lecciones del Curso</h2>
               <button
                 onClick={handleAddLesson}
-                className="btn-primary flex items-center space-x-2"
+                className="w-full sm:w-auto btn-primary flex items-center justify-center space-x-2 py-2.5 px-6 font-bold shadow-lg shadow-primary-600/10 active:scale-95"
               >
                 <Plus size={20} />
                 <span>Agregar Lección</span>
@@ -268,39 +268,39 @@ const CourseForm = () => {
             </div>
 
             {lessons.length === 0 ? (
-              <div className="text-center py-12 text-gray-500 dark:text-gray-400">
-                <FileText className="mx-auto mb-3" size={48} />
-                <p>No hay lecciones aún. Agrega la primera lección.</p>
+              <div className="text-center py-8 md:py-12 text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900/50 rounded-xl border border-dashed border-gray-200 dark:border-gray-700">
+                <FileText className="mx-auto mb-3 opacity-20" size={48} />
+                <p className="text-sm italic">No hay lecciones aún. Empieza agregando una.</p>
               </div>
             ) : (
               <div className="space-y-3">
                 {lessons.map((lesson, index) => (
                   <div
                     key={lesson.id}
-                    className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex items-center justify-between hover:border-primary-300 dark:hover:border-primary-600 transition-colors"
+                    className="border border-gray-200 dark:border-gray-700 rounded-xl p-3 md:p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:border-primary-300 dark:hover:border-primary-600 transition-colors bg-gray-50/50 dark:bg-gray-800/50"
                   >
-                    <div className="flex items-center space-x-4 flex-1">
-                      <div className="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center text-primary-600 dark:text-primary-400 font-bold">
+                    <div className="flex items-center space-x-3 md:space-x-4 flex-1">
+                      <div className="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center text-primary-600 dark:text-primary-400 font-bold text-sm">
                         {index + 1}
                       </div>
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900 dark:text-gray-100">{lesson.title}</h3>
-                        <div className="flex items-center space-x-4 mt-1 text-sm text-gray-600 dark:text-gray-400">
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-bold text-gray-900 dark:text-gray-100 text-sm md:text-base truncate">{lesson.title}</h3>
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-[10px] md:text-xs text-gray-500 dark:text-gray-400 uppercase tracking-widest font-semibold">
                           {lesson.youtube_video_id && (
                             <span className="flex items-center space-x-1">
-                              <Youtube size={14} />
+                              <Youtube size={12} className="text-red-500" />
                               <span>Video</span>
                             </span>
                           )}
-                          {lesson.pdf_file && (
+                          {(lesson.pdf_files?.length > 0 || lesson.pdf_file) && (
                             <span className="flex items-center space-x-1">
-                              <FileText size={14} />
-                              <span>PDF</span>
+                              <FileText size={12} className="text-blue-500" />
+                              <span>Docs</span>
                             </span>
                           )}
                           {lesson.audio_file && (
                             <span className="flex items-center space-x-1">
-                              <Music size={14} />
+                              <Music size={12} className="text-purple-500" />
                               <span>Audio</span>
                             </span>
                           )}
@@ -310,13 +310,13 @@ const CourseForm = () => {
                     <div className="flex items-center space-x-2">
                       <button
                         onClick={() => navigate(`/teacher/courses/${id}/lessons/${lesson.id}/edit`)}
-                        className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                        className="flex-1 sm:flex-none px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-bold text-xs uppercase tracking-wider shadow-sm"
                       >
                         Editar
                       </button>
                       <button
                         onClick={() => handleDeleteLesson(lesson.id)}
-                        className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                        className="p-2 bg-red-50 transition-colors text-red-500 hover:bg-red-500 hover:text-white rounded-lg border border-red-100 dark:border-red-900/30"
                       >
                         <Trash2 size={18} />
                       </button>

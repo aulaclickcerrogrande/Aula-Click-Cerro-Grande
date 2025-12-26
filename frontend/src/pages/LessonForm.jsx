@@ -122,20 +122,20 @@ const LessonForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8 transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-4 md:py-8 transition-colors duration-300">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+        <div className="mb-6 md:mb-8">
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-1 md:mb-2 leading-tight">
             {isEdit ? 'Editar Lección' : 'Crear Nueva Lección'}
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">
             {isEdit ? 'Actualiza la información de tu lección' : 'Agrega contenido educativo a tu curso'}
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 space-y-6 border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+        <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-5 md:p-8 space-y-5 md:space-y-6 border border-gray-200 dark:border-gray-700 transition-colors duration-300">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wider">
               Título de la Lección *
             </label>
             <input
@@ -143,14 +143,14 @@ const LessonForm = () => {
               name="title"
               value={formData.title}
               onChange={handleChange}
-              className="input-field"
+              className="input-field py-3 text-sm md:text-base"
               placeholder="Ej: Introducción a Variables"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wider">
               Descripción
             </label>
             <textarea
@@ -158,86 +158,85 @@ const LessonForm = () => {
               value={formData.description}
               onChange={handleChange}
               rows="3"
-              className="input-field"
+              className="input-field py-3 text-sm md:text-base"
               placeholder="Describe brevemente el contenido de esta lección..."
             ></textarea>
           </div>
 
 
 
-          <div className="border-t dark:border-gray-700 pt-6">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center space-x-2">
-              <Youtube className="text-red-600" size={24} />
+          <div className="border-t dark:border-gray-700 pt-5 md:pt-6">
+            <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center space-x-2 uppercase tracking-wider">
+              <Youtube className="text-red-600" size={20} />
               <span>Video de YouTube</span>
             </h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                  Enlace del Video de YouTube
+                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-widest px-1">
+                  Enlace del Video
                 </label>
                 <input
                   type="text"
                   name="youtube_video_id"
                   value={formData.youtube_video_id}
                   onChange={handleChange}
-                  className="input-field"
+                  className="input-field py-3 text-sm"
                   placeholder="https://www.youtube.com/watch?v=..."
                 />
-                <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                  Copia y pega el enlace completo del video desde tu navegador.
+                <p className="mt-2 text-[10px] md:text-xs text-gray-500 dark:text-gray-400 italic">
+                  Copia y pega el enlace completo del video.
                 </p>
               </div>
 
               {formData.youtube_video_id && (
                 <div className="mt-4">
-                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Vista Previa del Video:</p>
-                  <div className="max-w-md">
+                  <p className="text-xs font-bold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-widest px-1">Vista Previa:</p>
+                  <div className="w-full max-w-full overflow-hidden rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
                     <SecureVideoPlayer videoId={formData.youtube_video_id} />
                   </div>
                 </div>
               )}
-
             </div>
           </div>
 
-          <div className="border-t dark:border-gray-700 pt-6">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center space-x-2">
-              <FileText className="text-blue-600" size={24} />
+          <div className="border-t dark:border-gray-700 pt-5 md:pt-6">
+            <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center space-x-2 uppercase tracking-wider">
+              <FileText className="text-blue-600" size={20} />
               <span>Documentos</span>
             </h3>
-            <div className="space-y-4">
-
-
+            <div className="space-y-5">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-widest px-1">
                   Archivos Word (DOCX)
                 </label>
                 <div className="space-y-2">
                   {formData.docx_files?.map((file, index) => (
-                    <div key={index} className="flex items-center space-x-2 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
-                      <CheckCircle size={20} className="text-green-600 dark:text-green-400" />
-                      <span className="flex-1 text-sm text-green-700 dark:text-green-300">DOCX {index + 1}</span>
-                      <button
-                        type="button"
-                        onClick={() => handlePreview(file, 'docx')}
-                        className="p-1 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded transition-colors"
-                        title="Vista previa"
-                      >
-                        <Eye size={18} className="text-blue-600 dark:text-blue-400" />
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => handleRemoveFile('docx_files', index)}
-                        className="p-1 hover:bg-red-100 dark:hover:bg-red-900/30 rounded transition-colors"
-                      >
-                        <X size={18} className="text-red-600 dark:text-red-400" />
-                      </button>
+                    <div key={index} className="flex items-center space-x-2 p-2.5 bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-700 rounded-xl">
+                      <CheckCircle size={18} className="text-green-500 flex-shrink-0" />
+                      <span className="flex-1 text-xs font-bold text-gray-700 dark:text-gray-300 truncate">DOCX {index + 1}</span>
+                      <div className="flex space-x-1">
+                        <button
+                          type="button"
+                          onClick={() => handlePreview(file, 'docx')}
+                          className="p-1.5 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
+                          title="Vista previa"
+                        >
+                          <Eye size={16} className="text-blue-600 dark:text-blue-400" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveFile('docx_files', index)}
+                          className="p-1.5 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg transition-colors"
+                        >
+                          <X size={16} className="text-red-500" />
+                        </button>
+                      </div>
                     </div>
                   ))}
-                  <label className="cursor-pointer">
-                    <div className="flex items-center justify-center space-x-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:border-primary-500 dark:hover:border-primary-400 transition-colors">
-                      <Upload size={18} className="text-gray-600 dark:text-gray-400" />
-                      <span className="text-gray-600 dark:text-gray-400">{uploading.docx_files ? 'Subiendo...' : 'Subir DOCX'}</span>
+                  <label className="cursor-pointer block">
+                    <div className="flex items-center justify-center space-x-2 px-4 py-3 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl hover:border-primary-500 dark:hover:border-primary-400 transition-all bg-gray-50/50 dark:bg-gray-800/50">
+                      <Upload size={18} className="text-gray-400" />
+                      <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">{uploading.docx_files ? 'Subiendo...' : 'Subir DOCX'}</span>
                     </div>
                     <input
                       type="file"
@@ -383,19 +382,19 @@ const LessonForm = () => {
             </div>
           </div>
 
-          <div className="flex space-x-4 pt-6">
+          <div className="flex flex-col sm:flex-row gap-4 pt-6">
             <button
               type="submit"
               disabled={loading || Object.values(uploading).some(v => v)}
-              className="flex-1 btn-primary disabled:opacity-50 flex items-center justify-center space-x-2"
+              className="w-full sm:flex-1 btn-primary disabled:opacity-50 flex items-center justify-center space-x-2 py-4 shadow-xl shadow-primary-600/20 active:scale-[0.98] transition-all"
             >
               <Save size={20} />
-              <span>{loading ? 'Guardando...' : isEdit ? 'Actualizar Lección' : 'Crear Lección'}</span>
+              <span className="font-bold uppercase tracking-wider">{loading ? 'Guardando...' : isEdit ? 'Actualizar Lección' : 'Crear Lección'}</span>
             </button>
             <button
               type="button"
               onClick={() => navigate(`/teacher/courses/${courseId}/edit`)}
-              className="flex-1 btn-secondary"
+              className="w-full sm:flex-1 px-6 py-4 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all font-bold uppercase tracking-wider text-sm active:scale-[0.98]"
             >
               Cancelar
             </button>
@@ -406,7 +405,7 @@ const LessonForm = () => {
       {/* Modal de Vista Previa */}
       {previewModal.show && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4" onClick={closePreview}>
-          <div className="bg-white dark:bg-gray-800 rounded-xl max-w-6xl w-full h-[90vh] flex flex-col" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-white dark:bg-gray-800 rounded-xl max-w-6xl w-full aspect-video md:h-[90vh] flex flex-col" onClick={(e) => e.stopPropagation()}>
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white">

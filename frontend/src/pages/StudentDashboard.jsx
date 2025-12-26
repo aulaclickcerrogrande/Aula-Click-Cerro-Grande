@@ -38,7 +38,7 @@ const StudentDashboard = () => {
     <div className="flex min-h-screen bg-white dark:bg-gray-900">
       <DashboardSidebar />
 
-      <main className="ml-64 flex-1 p-8">
+      <main className="flex-1 lg:ml-64 p-4 md:p-6 lg:p-8">
         <VoucherNotifications />
         {loading ? (
           <div className="flex items-center justify-center min-h-[60vh]">
@@ -46,18 +46,18 @@ const StudentDashboard = () => {
           </div>
         ) : myCourses.length === 0 ? (
           // Empty State estilo Classroom
-          <div className="flex flex-col items-center justify-center min-h-[70vh]">
+          <div className="flex flex-col items-center justify-center min-h-[70vh] px-4">
             <img
               src="/empty_state.png"
               alt="No hay cursos"
-              className="w-64 h-64 object-contain mb-6"
+              className="w-48 h-48 md:w-64 md:h-64 object-contain mb-4 md:mb-6"
             />
-            <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
+            <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg mb-4 md:mb-6 text-center">
               Agrega un curso para empezar
             </p>
             <Link
               to="/courses"
-              className="bg-blue-600 dark:bg-blue-500 text-white px-6 py-2.5 rounded-md hover:bg-blue-700 dark:hover:bg-blue-600 font-medium transition-colors"
+              className="bg-blue-600 dark:bg-blue-500 text-white px-5 md:px-6 py-2 md:py-2.5 rounded-md hover:bg-blue-700 dark:hover:bg-blue-600 font-medium transition-colors text-sm md:text-base"
             >
               Explorar cursos
             </Link>
@@ -65,9 +65,9 @@ const StudentDashboard = () => {
         ) : (
           // Grid de cursos con diseño detallado
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8">Mis Cursos</h1>
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6 md:mb-8">Mis Cursos</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
               {myCourses.map((course) => (
                 <Link
                   key={course.id}

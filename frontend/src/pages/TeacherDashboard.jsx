@@ -19,7 +19,6 @@ const TeacherDashboard = () => {
 
   useEffect(() => {
     loadDashboardData();
-    // Escuchar cambios desde la sidebar
     window.addEventListener('voucher-processed', loadDashboardData);
     return () => window.removeEventListener('voucher-processed', loadDashboardData);
   }, []);
@@ -86,13 +85,13 @@ const TeacherDashboard = () => {
     <div className="flex min-h-screen bg-white dark:bg-gray-900">
       <DashboardSidebar />
 
-      <main className="ml-64 flex-1 p-8">
+      <main className="flex-1 lg:ml-64 p-4 md:p-6 lg:p-8">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-2xl font-normal text-gray-800 dark:text-gray-100">Mis Cursos</h1>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 md:mb-8">
+          <h1 className="text-xl md:text-2xl font-normal text-gray-800 dark:text-gray-100">Mis Cursos</h1>
           <Link
             to="/teacher/courses/new"
-            className="bg-blue-600 dark:bg-blue-500 text-white px-5 py-2.5 rounded-md hover:bg-blue-700 dark:hover:bg-blue-600 font-medium transition-colors flex items-center space-x-2"
+            className="bg-blue-600 dark:bg-blue-500 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-md hover:bg-blue-700 dark:hover:bg-blue-600 font-medium transition-colors flex items-center justify-center space-x-2 text-sm md:text-base"
           >
             <Plus size={18} />
             <span>Crear Curso</span>
@@ -101,11 +100,11 @@ const TeacherDashboard = () => {
 
         {/* Alertas de pendientes */}
         {stats.pendingEnrollments > 0 && (
-          <div className="mb-6 space-y-3">
-            <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-400 p-4 rounded">
+          <div className="mb-4 md:mb-6 space-y-2 md:space-y-3">
+            <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-400 p-3 md:p-4 rounded">
               <div className="flex items-center">
-                <AlertCircle className="text-blue-600 dark:text-blue-400 mr-3" size={20} />
-                <p className="text-blue-700 dark:text-blue-300 text-sm">
+                <AlertCircle className="text-blue-600 dark:text-blue-400 mr-2 md:mr-3 flex-shrink-0" size={18} />
+                <p className="text-blue-700 dark:text-blue-300 text-xs md:text-sm">
                   Tienes <span className="font-semibold">{stats.pendingEnrollments}</span> inscripción(es) pendiente(s)
                 </p>
               </div>
@@ -119,25 +118,25 @@ const TeacherDashboard = () => {
             <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
           </div>
         ) : courses.length === 0 ? (
-          <div className="flex flex-col items-center justify-center min-h-[60vh]">
+          <div className="flex flex-col items-center justify-center min-h-[60vh] px-4">
             <img
               src="/empty_state.png"
               alt="No hay cursos"
-              className="w-48 h-48 object-contain mb-4"
+              className="w-40 h-40 md:w-48 md:h-48 object-contain mb-3 md:mb-4"
             />
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-gray-600 dark:text-gray-400 mb-3 md:mb-4 text-sm md:text-base text-center">
               No has creado ningún curso todavía
             </p>
             <Link
               to="/teacher/courses/new"
-              className="bg-blue-600 text-white px-6 py-2.5 rounded-md hover:bg-blue-700 font-medium transition-colors flex items-center space-x-2"
+              className="bg-blue-600 text-white px-5 md:px-6 py-2 md:py-2.5 rounded-md hover:bg-blue-700 font-medium transition-colors flex items-center space-x-2 text-sm md:text-base"
             >
               <Plus size={18} />
               <span>Crear Curso</span>
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {courses.map((course) => (
               <div key={course.id} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow group">
                 {course.thumbnail ? (

@@ -7,7 +7,7 @@ from .views import (
     login, get_profile, update_profile, upload_file,
     CourseViewSet, LessonViewSet, EnrollmentViewSet, 
     VoucherPaymentViewSet, ProgressViewSet, UserViewSet,
-    request_password_reset, reset_password
+    request_password_reset, reset_password, visitor_count_view
 )
 
 router = DefaultRouter()
@@ -29,5 +29,6 @@ urlpatterns = [
     path('auth/password-reset/request/', request_password_reset, name='request_password_reset'),
     path('auth/password-reset/confirm/', reset_password, name='reset_password'),
     path('upload/', upload_file, name='upload_file'),
+    path('stats/visitor-count/', visitor_count_view, name='visitor_count'),
     path('', include(router.urls)),
 ]

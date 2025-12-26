@@ -54,40 +54,40 @@ const Settings = () => {
         <div className="flex min-h-screen bg-white dark:bg-gray-900">
             <DashboardSidebar />
 
-            <main className="ml-64 flex-1 p-8">
-                <h1 className="text-2xl font-normal text-gray-800 dark:text-gray-100 mb-8">Configuración</h1>
+            <main className="flex-1 lg:ml-64 p-4 md:p-6 lg:p-8">
+                <h1 className="text-xl md:text-2xl font-normal text-gray-800 dark:text-gray-100 mb-6 md:mb-8">Configuración</h1>
 
                 {/* Información Personal */}
-                <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 mb-6">
-                    <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4 flex items-center">
-                        <User size={20} className="mr-2" />
+                <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 mb-4 md:mb-6">
+                    <h2 className="text-base md:text-lg font-medium text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center">
+                        <User size={18} className="mr-2 flex-shrink-0" />
                         Información Personal
                     </h2>
 
-                    <div className="space-y-4">
+                    <div className="space-y-3 md:space-y-4">
                         <div className="flex items-start">
-                            <Mail size={18} className="text-gray-500 dark:text-gray-400 mr-3 mt-0.5" />
-                            <div>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">Correo Electrónico</p>
-                                <p className="text-gray-900 dark:text-gray-100 font-medium">{currentUser?.email}</p>
+                            <Mail size={16} className="text-gray-500 dark:text-gray-400 mr-2 md:mr-3 mt-0.5 flex-shrink-0" />
+                            <div className="min-w-0 flex-1">
+                                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Correo Electrónico</p>
+                                <p className="text-sm md:text-base text-gray-900 dark:text-gray-100 font-medium truncate">{currentUser?.email}</p>
                             </div>
                         </div>
 
                         <div className="flex items-start">
-                            <User size={18} className="text-gray-500 dark:text-gray-400 mr-3 mt-0.5" />
-                            <div>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">Nombres</p>
-                                <p className="text-gray-900 dark:text-gray-100 font-medium">
+                            <User size={16} className="text-gray-500 dark:text-gray-400 mr-2 md:mr-3 mt-0.5 flex-shrink-0" />
+                            <div className="min-w-0 flex-1">
+                                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Nombres</p>
+                                <p className="text-sm md:text-base text-gray-900 dark:text-gray-100 font-medium break-words">
                                     {currentUser?.first_name} {currentUser?.middle_name}
                                 </p>
                             </div>
                         </div>
 
                         <div className="flex items-start">
-                            <User size={18} className="text-gray-500 dark:text-gray-400 mr-3 mt-0.5" />
-                            <div>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">Apellidos</p>
-                                <p className="text-gray-900 dark:text-gray-100 font-medium">
+                            <User size={16} className="text-gray-500 dark:text-gray-400 mr-2 md:mr-3 mt-0.5 flex-shrink-0" />
+                            <div className="min-w-0 flex-1">
+                                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Apellidos</p>
+                                <p className="text-sm md:text-base text-gray-900 dark:text-gray-100 font-medium break-words">
                                     {currentUser?.last_name} {currentUser?.second_last_name}
                                 </p>
                             </div>
@@ -95,9 +95,9 @@ const Settings = () => {
 
                         {currentUser?.phone && (
                             <div className="flex items-start">
-                                <Phone size={18} className="text-gray-500 dark:text-gray-400 mr-3 mt-0.5" />
-                                <div>
-                                    <p className="text-sm text-gray-600 dark:text-gray-400">Teléfono</p>
+                                <Phone size={16} className="text-gray-500 dark:text-gray-400 mr-2 md:mr-3 mt-0.5 flex-shrink-0" />
+                                <div className="min-w-0 flex-1">
+                                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Teléfono</p>
                                     <p className="text-gray-900 dark:text-gray-100 font-medium">{currentUser.phone}</p>
                                 </div>
                             </div>

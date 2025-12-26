@@ -66,21 +66,21 @@ const ForgotPassword = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center px-4 py-12">
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center px-4 py-6 md:py-12 transition-all duration-500">
             <div className="max-w-md w-full">
-                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8">
+                <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-6 md:p-8 border border-white/20 dark:border-gray-700/50 backdrop-blur-sm">
                     {/* Header */}
-                    <div className="text-center mb-8">
-                        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-full mb-4">
-                            <Key size={32} className="text-white" />
+                    <div className="text-center mb-6 md:mb-8">
+                        <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl md:rounded-full mb-4 shadow-lg shadow-primary-500/20 rotate-3 transform">
+                            <Key size={28} className="text-white md:w-8 md:h-8" />
                         </div>
-                        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                            {step === 1 ? 'Recuperar Contraseña' : 'Restablecer Contraseña'}
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                            {step === 1 ? '¿Olvidaste tu clave?' : 'Nueva Contraseña'}
                         </h2>
-                        <p className="text-gray-600 dark:text-gray-400">
+                        <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">
                             {step === 1
-                                ? 'Ingresa tu email para recibir un código'
-                                : 'Ingresa el código y tu nueva contraseña'}
+                                ? 'Ingresa tu email para recibir un código de recuperación'
+                                : 'Ingresa el código enviado y tu nueva contraseña'}
                         </p>
                     </div>
 
@@ -99,20 +99,20 @@ const ForgotPassword = () => {
 
                     {/* Step 1: Request Code */}
                     {step === 1 && (
-                        <form onSubmit={handleRequestCode} className="space-y-6">
+                        <form onSubmit={handleRequestCode} className="space-y-5 md:space-y-6">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                    Email
+                                <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-widest px-1">
+                                    Correo Electrónico
                                 </label>
-                                <div className="relative">
-                                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                                <div className="relative group">
+                                    <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-primary-500 transition-colors" size={18} />
                                     <input
                                         type="email"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         required
-                                        className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                                        placeholder="tu@email.com"
+                                        className="w-full pl-12 pr-4 py-3.5 border border-gray-100 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-all text-sm md:text-base"
+                                        placeholder="usuario@ejemplo.com"
                                     />
                                 </div>
                             </div>
@@ -120,80 +120,80 @@ const ForgotPassword = () => {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="w-full bg-gradient-to-r from-pink-500 to-red-500 text-white py-3 rounded-lg font-semibold hover:from-pink-600 hover:to-red-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-primary-600 text-white py-3.5 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-primary-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-primary-600/20 active:scale-95"
                             >
-                                {loading ? 'Enviando...' : 'Enviar Código'}
+                                {loading ? 'Enviando...' : 'Pedir Código'}
                             </button>
                         </form>
                     )}
 
                     {/* Step 2: Reset Password */}
                     {step === 2 && (
-                        <form onSubmit={handleResetPassword} className="space-y-6">
+                        <form onSubmit={handleResetPassword} className="space-y-4 md:space-y-5">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-widest px-1">
                                     Código de Verificación
                                 </label>
                                 <div className="relative">
-                                    <Key className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                                    <Key className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                                     <input
                                         type="text"
                                         value={code}
                                         onChange={(e) => setCode(e.target.value)}
                                         required
                                         maxLength="6"
-                                        className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-center text-2xl tracking-widest"
+                                        className="w-full pl-12 pr-4 py-3.5 border border-gray-100 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white text-center text-3xl font-black tracking-[0.5em] transition-all"
                                         placeholder="000000"
                                     />
                                 </div>
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-widest px-1">
                                     Nueva Contraseña
                                 </label>
                                 <div className="relative">
-                                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                                    <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                                     <input
                                         type="password"
                                         value={newPassword}
                                         onChange={(e) => setNewPassword(e.target.value)}
                                         required
-                                        className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                                        className="w-full pl-12 pr-4 py-3.5 border border-gray-100 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white text-sm md:text-base transition-all"
                                         placeholder="Mínimo 6 caracteres"
                                     />
                                 </div>
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                    Confirmar Contraseña
+                                <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-widest px-1">
+                                    Repetir Contraseña
                                 </label>
                                 <div className="relative">
-                                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                                    <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                                     <input
                                         type="password"
                                         value={confirmPassword}
                                         onChange={(e) => setConfirmPassword(e.target.value)}
                                         required
-                                        className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white ${confirmPassword && newPassword !== confirmPassword
-                                                ? 'border-red-500 dark:border-red-500'
-                                                : 'border-gray-300 dark:border-gray-600'
+                                        className={`w-full pl-12 pr-4 py-3.5 border rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white text-sm md:text-base transition-all ${confirmPassword && newPassword !== confirmPassword
+                                            ? 'border-red-400'
+                                            : 'border-gray-100 dark:border-gray-700'
                                             }`}
                                         placeholder="Confirma tu contraseña"
                                     />
                                 </div>
                                 {confirmPassword && newPassword !== confirmPassword && (
-                                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">Las contraseñas no coinciden</p>
+                                    <p className="mt-1 text-[10px] md:text-xs text-red-500 font-bold uppercase tracking-wider px-1">Las contraseñas no coinciden</p>
                                 )}
                             </div>
 
                             <button
                                 type="submit"
-                                disabled={loading || newPassword !== confirmPassword}
-                                className="w-full bg-gradient-to-r from-pink-500 to-red-500 text-white py-3 rounded-lg font-semibold hover:from-pink-600 hover:to-red-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                                disabled={loading || !code || !newPassword || newPassword !== confirmPassword}
+                                className="w-full bg-primary-600 text-white py-3.5 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-primary-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-primary-600/20 active:scale-95"
                             >
-                                {loading ? 'Cambiando...' : 'Cambiar Contraseña'}
+                                {loading ? 'Restableciendo...' : 'Cambiar Contraseña'}
                             </button>
                         </form>
                     )}

@@ -57,33 +57,33 @@ const CoursesList = () => {
     <div className="flex min-h-screen bg-white dark:bg-gray-900">
       <DashboardSidebar />
 
-      <main className="ml-64 flex-1 p-8">
+      <main className="flex-1 lg:ml-64 p-4 md:p-6 lg:p-8">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">Catálogo de Cursos</h1>
-            <p className="text-gray-600 dark:text-gray-400">
+          <div className="mb-6 md:mb-8">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3 md:mb-4">Catálogo de Cursos</h1>
+            <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">
               {isTeacher ? 'Gestiona y visualiza los cursos disponibles' : 'Explora y encuentra el curso perfecto para ti'}
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8 border border-gray-200 dark:border-gray-700">
-            <div className="flex flex-col md:flex-row gap-4">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 md:p-6 mb-6 md:mb-8 border border-gray-200 dark:border-gray-700">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-4">
               <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                 <input
                   type="text"
                   placeholder="Buscar cursos..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full pl-9 md:pl-10 pr-3 md:pr-4 py-2.5 md:py-3 text-sm md:text-base border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 />
               </div>
               <div className="flex items-center space-x-2">
-                <Filter size={20} className="text-gray-600 dark:text-gray-400" />
+                <Filter size={18} className="text-gray-600 dark:text-gray-400 flex-shrink-0" />
                 <select
                   value={filter}
                   onChange={(e) => setFilter(e.target.value)}
-                  className="px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="flex-1 md:flex-none px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 >
                   <option value="all">Todos</option>
                   <option value="free">Gratis</option>
@@ -95,23 +95,23 @@ const CoursesList = () => {
 
           {loading ? (
             <div className="text-center py-12">
-              <div className="inline-block animate-spin rounded-full h-16 w-16 border-b-2 border-primary-600"></div>
-              <p className="mt-4 text-gray-600 dark:text-gray-400">Cargando cursos...</p>
+              <div className="inline-block animate-spin rounded-full h-12 md:h-16 w-12 md:w-16 border-b-2 border-primary-600"></div>
+              <p className="mt-4 text-sm md:text-base text-gray-600 dark:text-gray-400">Cargando cursos...</p>
             </div>
           ) : filteredCourses.length === 0 ? (
-            <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-              <BookOpen className="mx-auto text-gray-400 mb-4" size={64} />
-              <h3 className="text-2xl font-bold text-gray-700 dark:text-gray-300 mb-2">
+            <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 px-4">
+              <BookOpen className="mx-auto text-gray-400 mb-4" size={48} />
+              <h3 className="text-xl md:text-2xl font-bold text-gray-700 dark:text-gray-300 mb-2">
                 {searchTerm ? 'No se encontraron cursos' : 'Próximamente'}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">
                 {searchTerm
                   ? 'Intenta con otros términos de búsqueda'
                   : 'Estamos preparando cursos increíbles para ti'}
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
               {filteredCourses.map((course) => (
                 <Link
                   key={course.id}

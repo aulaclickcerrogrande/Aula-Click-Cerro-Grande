@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { UserPlus, AlertCircle, Mail, RefreshCw } from 'lucide-react';
+import { UserPlus, AlertCircle, Mail, RefreshCw, ArrowLeft } from 'lucide-react';
+import BrandTitle from '../components/BrandTitle';
 
 const Register = () => {
   const [step, setStep] = useState(1); // 1: Formulario, 2: Verificación
@@ -111,35 +112,45 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 transition-colors duration-300">
-      <div className="max-w-2xl w-full">
-        <div className="text-center mb-8">
-          <div className="inline-block p-4 bg-primary-600 rounded-full mb-4">
-            <UserPlus className="text-white" size={40} />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-900 dark:to-gray-800 py-8 md:py-12 px-4 transition-colors duration-300 relative overflow-hidden">
+      {/* Botón Volver */}
+      <div className="absolute top-4 left-4 md:top-8 md:left-8 z-20">
+        <button
+          onClick={() => step === 2 ? setStep(1) : navigate('/')}
+          className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm px-4 py-2 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm"
+        >
+          <ArrowLeft size={20} />
+          <span className="font-bold">Volver</span>
+        </button>
+      </div>
+      <div className="max-w-2xl w-full relative z-10">
+        <div className="text-center mb-6 md:mb-8">
+          <div className="inline-block p-3 md:p-4 bg-primary-600 rounded-full mb-3 md:mb-4">
+            <UserPlus className="text-white" size={32} />
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Crear Cuenta</h2>
-          <p className="text-gray-600 dark:text-gray-300 mt-2">Regístrate como estudiante</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Crear Cuenta</h2>
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mt-2">Únete a la comunidad de <BrandTitle className="font-bold italic" /></p>
         </div>
 
-        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-8 transition-colors duration-300">
+        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-6 md:p-8 transition-colors duration-300">
           {errors.general && (
-            <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-start space-x-3">
-              <AlertCircle className="text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" size={20} />
-              <p className="text-red-800 dark:text-red-300 text-sm">{errors.general}</p>
+            <div className="mb-4 md:mb-6 p-3 md:p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-start space-x-2 md:space-x-3">
+              <AlertCircle className="text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" size={18} />
+              <p className="text-red-800 dark:text-red-300 text-xs md:text-sm">{errors.general}</p>
             </div>
           )}
 
           {errors.success && (
-            <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-start space-x-3">
-              <Mail className="text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" size={20} />
-              <p className="text-green-800 dark:text-green-300 text-sm">{errors.success}</p>
+            <div className="mb-4 md:mb-6 p-3 md:p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-start space-x-2 md:space-x-3">
+              <Mail className="text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" size={18} />
+              <p className="text-green-800 dark:text-green-300 text-xs md:text-sm">{errors.success}</p>
             </div>
           )}
 
           {step === 1 ? (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                   Nombres Completos *
                 </label>
                 <input
@@ -147,7 +158,7 @@ const Register = () => {
                   name="full_name"
                   value={formData.full_name}
                   onChange={handleChange}
-                  className="input-field"
+                  className="input-field text-sm md:text-base"
                   placeholder="Ej: Juan Carlos"
                   required
                 />
@@ -157,7 +168,7 @@ const Register = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                   Apellidos Completos *
                 </label>
                 <input
@@ -165,7 +176,7 @@ const Register = () => {
                   name="full_lastname"
                   value={formData.full_lastname}
                   onChange={handleChange}
-                  className="input-field"
+                  className="input-field text-sm md:text-base"
                   placeholder="Ej: Pérez García"
                   required
                 />
@@ -175,7 +186,7 @@ const Register = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                   Correo Electrónico
                 </label>
                 <input
@@ -183,14 +194,14 @@ const Register = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="input-field"
+                  className="input-field text-sm md:text-base"
                   placeholder="tu@email.com"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                   Teléfono (Opcional)
                 </label>
                 <input
@@ -198,14 +209,14 @@ const Register = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="input-field"
+                  className="input-field text-sm md:text-base"
                   placeholder="+51 999 999 999"
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                     Contraseña
                   </label>
                   <input
@@ -213,14 +224,14 @@ const Register = () => {
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
-                    className="input-field"
+                    className="input-field text-sm md:text-base"
                     placeholder="Contraseña segura"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                     Confirmar Contraseña
                   </label>
                   <input
@@ -228,7 +239,7 @@ const Register = () => {
                     name="password2"
                     value={formData.password2}
                     onChange={handleChange}
-                    className={`input-field ${errors.password2 ? 'border-red-500 dark:border-red-400' : ''}`}
+                    className={`input-field text-sm md:text-base ${errors.password2 ? 'border-red-500 dark:border-red-400' : ''}`}
                     placeholder="Repite tu contraseña"
                     required
                   />
@@ -244,31 +255,31 @@ const Register = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base py-3 md:py-4"
               >
                 {loading ? 'Enviando código...' : 'Enviar Código de Verificación'}
               </button>
             </form>
           ) : (
-            <form onSubmit={handleVerifyCode} className="space-y-6">
-              <div className="text-center mb-6">
-                <Mail className="inline-block text-primary-600 dark:text-primary-400 mb-4" size={48} />
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Verifica tu Email</h3>
-                <p className="text-gray-600 dark:text-gray-400">
+            <form onSubmit={handleVerifyCode} className="space-y-4 md:space-y-6">
+              <div className="text-center mb-4 md:mb-6">
+                <Mail className="inline-block text-primary-600 dark:text-primary-400 mb-3 md:mb-4" size={40} />
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2">Verifica tu Email</h3>
+                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                   Enviamos un código de 6 dígitos a<br />
                   <strong className="text-gray-900 dark:text-white">{formData.email}</strong>
                 </p>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                   Código de Verificación
                 </label>
                 <input
                   type="text"
                   value={verificationCode}
                   onChange={(e) => setVerificationCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                  className="input-field text-center text-2xl tracking-widest"
+                  className="input-field text-center text-xl md:text-2xl tracking-widest"
                   placeholder="000000"
                   maxLength="6"
                   required
@@ -278,7 +289,7 @@ const Register = () => {
               <button
                 type="submit"
                 disabled={loading || verificationCode.length !== 6}
-                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base py-3 md:py-4"
               >
                 {loading ? 'Verificando...' : 'Completar Registro'}
               </button>

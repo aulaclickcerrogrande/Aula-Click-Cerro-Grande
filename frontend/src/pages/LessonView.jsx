@@ -84,11 +84,11 @@ const LessonView = () => {
     const downloadUrl = getCloudinaryDownloadUrl(url, fileName);
 
     return (
-      <div key={`${type}-${index}`} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6 border border-gray-100 dark:border-gray-700 transition-colors">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xl font-bold flex items-center space-x-2 text-gray-900 dark:text-gray-100">
-            <FileText size={24} className="text-primary-600 dark:text-primary-400" />
-            <span>Documento: {type.toUpperCase()} {index + 1}</span>
+      <div key={`${type}-${index}`} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 md:p-6 mb-4 md:mb-6 border border-gray-100 dark:border-gray-700 transition-colors">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+          <h3 className="text-lg md:text-xl font-bold flex items-center space-x-2 text-gray-900 dark:text-gray-100">
+            <FileText size={20} className="text-primary-600 dark:text-primary-400 md:w-6 md:h-6" />
+            <span>Doc. {type.toUpperCase()} {index + 1}</span>
           </h3>
           <div className="flex space-x-2">
             {isDirectLink && (
@@ -96,9 +96,9 @@ const LessonView = () => {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 px-4 py-2 bg-gray-600 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors"
+                className="flex items-center space-x-2 px-3 md:px-4 py-2 bg-gray-600 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors text-xs md:text-sm"
               >
-                <ExternalLink size={18} />
+                <ExternalLink size={16} />
                 <span>Abrir en nueva pestaña</span>
               </a>
             )}
@@ -106,16 +106,16 @@ const LessonView = () => {
         </div>
 
         {isDirectLink ? (
-          <div className="flex flex-col items-center justify-center p-12 bg-gray-50 dark:bg-gray-900 rounded-lg border border-dashed border-gray-300 dark:border-gray-600">
-            <FileText size={64} className="text-gray-400 dark:text-gray-500 mb-4" />
-            <p className="text-gray-600 dark:text-gray-300 text-center mb-6 max-w-md">
-              Para visualizar este archivo PDF, haz clic en el botón de abajo para abrirlo en una nueva pestaña del navegador.
+          <div className="flex flex-col items-center justify-center p-6 md:p-12 bg-gray-50 dark:bg-gray-900 rounded-lg border border-dashed border-gray-300 dark:border-gray-600">
+            <FileText size={48} className="md:w-16 md:h-16 text-gray-400 dark:text-gray-500 mb-4" />
+            <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 text-center mb-6 max-w-md px-2">
+              Para visualizar este archivo PDF, haz clic en el botón de abajo para abrirlo en una nueva pestaña.
             </p>
             <a
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center space-x-2"
+              className="btn-primary inline-flex items-center space-x-2 py-2 px-6 text-sm md:text-base"
             >
               <ExternalLink size={18} />
               <span>Abrir PDF</span>
@@ -124,7 +124,7 @@ const LessonView = () => {
         ) : (
           <iframe
             src={viewerUrl}
-            className="w-full h-[600px] border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900"
+            className="w-full aspect-video md:h-[600px] border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900"
             title={`Documento ${type}`}
           ></iframe>
         )}
@@ -134,9 +134,9 @@ const LessonView = () => {
 
   const renderAudioPlayer = (url) => {
     return (
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6 border border-gray-100 dark:border-gray-700 transition-colors">
-        <h3 className="text-xl font-bold flex items-center space-x-2 mb-4 text-gray-900 dark:text-gray-100">
-          <Music size={24} className="text-primary-600 dark:text-primary-400" />
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 md:p-6 mb-4 md:mb-6 border border-gray-100 dark:border-gray-700 transition-colors">
+        <h3 className="text-lg md:text-xl font-bold flex items-center space-x-2 mb-4 text-gray-900 dark:text-gray-100">
+          <Music size={20} className="text-primary-600 dark:text-primary-400 md:w-6 md:h-6" />
           <span>Audio de la Clase</span>
         </h3>
         <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
@@ -175,21 +175,21 @@ const LessonView = () => {
   const nextLesson = currentIndex < course.lessons.length - 1 ? course.lessons[currentIndex + 1] : null;
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8 transition-colors">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-4 md:py-8 transition-colors">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <Link
             to={`/courses/${courseId}`}
-            className="inline-flex items-center space-x-2 text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 mb-6 font-semibold transition-colors"
+            className="inline-flex items-center space-x-2 text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 mb-4 md:mb-6 font-semibold transition-colors text-sm md:text-base"
           >
-            <ArrowLeft size={20} />
+            <ArrowLeft size={18} />
             <span>Volver al curso</span>
           </Link>
 
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-6 border border-gray-100 dark:border-gray-700 transition-colors">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-5 md:p-8 mb-4 md:mb-6 border border-gray-100 dark:border-gray-700 transition-colors">
             <div className="mb-4">
-              <h1 className="text-3xl font-bold mb-2 text-gray-900 dark:text-white">{lesson.title}</h1>
-              <p className="text-gray-600 dark:text-gray-400 font-medium">{course.title}</p>
+              <h1 className="text-xl md:text-3xl font-bold mb-1 md:mb-2 text-gray-900 dark:text-white leading-tight">{lesson.title}</h1>
+              <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">{course.title}</p>
             </div>
 
             {lesson.description && (
@@ -225,29 +225,29 @@ const LessonView = () => {
           {/* Audio simple */}
           {lesson.audio_file && renderAudioPlayer(lesson.audio_file)}
 
-          <div className="flex items-center justify-between bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700 transition-colors">
+          <div className="flex items-center justify-between bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 md:p-6 border border-gray-100 dark:border-gray-700 transition-colors gap-3 mb-8">
             {previousLesson ? (
               <Link
                 to={`/courses/${courseId}/lessons/${previousLesson.id}`}
-                className="flex items-center space-x-2 px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-semibold"
+                className="flex-1 sm:flex-none flex items-center justify-center space-x-1 md:space-x-2 px-3 md:px-6 py-2.5 md:py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-semibold text-xs md:text-base"
               >
-                <ArrowLeft size={20} />
+                <ArrowLeft size={16} className="md:w-5 md:h-5" />
                 <span>Anterior</span>
               </Link>
             ) : (
-              <div></div>
+              <div className="flex-1 sm:flex-none"></div>
             )}
 
             {nextLesson ? (
               <Link
                 to={`/courses/${courseId}/lessons/${nextLesson.id}`}
-                className="flex items-center space-x-2 px-6 py-3 bg-primary-600 dark:bg-primary-500 text-white rounded-lg hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors font-semibold"
+                className="flex-1 sm:flex-none flex items-center justify-center space-x-1 md:space-x-2 px-3 md:px-6 py-2.5 md:py-3 bg-primary-600 dark:bg-primary-500 text-white rounded-lg hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors font-semibold text-xs md:text-base"
               >
                 <span>Siguiente</span>
-                <ArrowLeft size={20} className="rotate-180" />
+                <ArrowLeft size={16} className="md:w-5 md:h-5 rotate-180" />
               </Link>
             ) : (
-              <div></div>
+              <div className="flex-1 sm:flex-none"></div>
             )}
           </div>
         </div>
